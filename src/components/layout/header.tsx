@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -19,10 +20,15 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between sm:h-18">
         <Link
           href="/"
-          className="text-[15px] font-semibold tracking-[-0.01em] text-fg"
+          className="flex items-center gap-2.5"
           onClick={() => setMobileOpen(false)}
         >
-          {SITE_NAME}
+          <Image src="/logo.png" alt="" width={30} height={30} priority className="h-7 w-7 sm:h-8 sm:w-8" />
+          <span
+            className="bg-[image:var(--gradient-brand)] bg-clip-text text-[16px] font-bold tracking-[-0.01em] text-transparent"
+          >
+            {SITE_NAME}
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

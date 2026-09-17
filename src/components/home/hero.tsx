@@ -1,22 +1,30 @@
-import { ArrowRight, UploadSimple } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
+import { ArrowRight, CubeFocus, Package, Ruler, UploadSimple } from "@phosphor-icons/react/dist/ssr";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 
-const LAYERS = [
-  { width: "100%", tone: "bg-bg-subtle" },
-  { width: "88%", tone: "bg-bg-subtle" },
-  { width: "94%", tone: "bg-accent-soft" },
-  { width: "76%", tone: "bg-bg-subtle" },
-  { width: "100%", tone: "bg-accent" },
-  { width: "82%", tone: "bg-bg-subtle" },
+const SPECS = [
+  { icon: Ruler, label: "Resolucion", value: "0.1 – 0.2 mm por capa" },
+  { icon: CubeFocus, label: "Materiales", value: "PLA, PETG, ABS, TPU" },
+  { icon: Package, label: "Entrega", value: "Fabricado bajo pedido" },
 ];
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <Container className="grid gap-14 py-16 sm:py-24 lg:grid-cols-12 lg:items-center lg:py-28">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
+        style={{ backgroundImage: "var(--gradient-brand)" }}
+      />
+
+      <Container className="relative grid gap-14 py-16 sm:py-24 lg:grid-cols-12 lg:items-center lg:py-28">
         <div className="lg:col-span-7">
-          <p className="animate-fade-up mb-5 inline-flex items-center gap-2 rounded-full border border-border-strong px-3.5 py-1.5 text-xs font-medium tracking-wide text-fg-muted">
+          <p className="animate-fade-up mb-5 inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface/60 px-3.5 py-1.5 text-xs font-medium tracking-wide text-fg-muted">
+            <span
+              className="h-1.5 w-1.5 rounded-full"
+              style={{ backgroundImage: "var(--gradient-brand)" }}
+            />
             Estudio de impresion 3D
           </p>
           <h1
@@ -48,17 +56,34 @@ export function Hero() {
         </div>
 
         <div className="lg:col-span-5">
-          <div className="animate-fade-up mx-auto flex max-w-sm flex-col gap-2.5 rounded-2xl border border-border bg-surface p-6 shadow-sm" style={{ animationDelay: "160ms" }}>
-            {LAYERS.map((layer, index) => (
-              <div
-                key={index}
-                className={`h-4 rounded-full ${layer.tone}`}
-                style={{ width: layer.width }}
-              />
-            ))}
-            <p className="mt-3 text-xs text-fg-faint">
-              Impresion capa a capa &middot; 0.1&ndash;0.2mm de resolucion
-            </p>
+          <div
+            className="animate-fade-up relative mx-auto flex max-w-sm flex-col items-center gap-6 overflow-hidden rounded-2xl border border-border bg-surface p-8 text-center shadow-md"
+            style={{ animationDelay: "160ms" }}
+          >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-16 h-48 w-48 rounded-full opacity-25 blur-2xl"
+              style={{ backgroundImage: "var(--gradient-brand)" }}
+            />
+            <Image
+              src="/logo.png"
+              alt="Voltrix3D"
+              width={112}
+              height={112}
+              priority
+              className="relative h-24 w-24 drop-shadow-sm sm:h-28 sm:w-28"
+            />
+            <div className="relative flex w-full flex-col gap-3 border-t border-border pt-5">
+              {SPECS.map((spec) => (
+                <div key={spec.label} className="flex items-center justify-between gap-3 text-left">
+                  <span className="flex items-center gap-2 text-xs text-fg-faint">
+                    <spec.icon size={15} weight="light" />
+                    {spec.label}
+                  </span>
+                  <span className="text-xs font-medium text-fg">{spec.value}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Container>

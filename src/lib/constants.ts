@@ -59,6 +59,9 @@ export const CUSTOM_PRINT_PRODUCT_HANDLE =
 export const ACCEPTED_MODEL_EXTENSIONS = [".stl", ".obj"];
 export const MAX_UPLOAD_SIZE_MB = 50;
 
+export const ACCEPTED_REFERENCE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp", ".pdf"];
+export const MAX_REFERENCE_UPLOAD_SIZE_MB = 20;
+
 // El nombre de esta opcion y sus valores deben coincidir exactamente con las
 // variantes del producto "Impresion personalizada" en Shopify: cada tramo de
 // precio es una variante con su propio precio fijado desde el panel de Shopify.

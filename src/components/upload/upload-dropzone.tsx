@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type DragEvent } from "react";
+import { useRef, useState, type DragEvent, type ElementType } from "react";
 import { CubeTransparent, FileArrowUp, X } from "@phosphor-icons/react/dist/ssr";
 import { ACCEPTED_MODEL_EXTENSIONS, MAX_UPLOAD_SIZE_MB } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -14,22 +14,30 @@ export function UploadDropzone({
   file,
   onFileSelected,
   error,
+  acceptedExtensions = ACCEPTED_MODEL_EXTENSIONS,
+  maxSizeMB = MAX_UPLOAD_SIZE_MB,
+  icon: Icon = CubeTransparent,
+  helperText,
 }: {
   file: File | null;
   onFileSelected: (file: File | null, error?: string) => void;
   error?: string;
+  acceptedExtensions?: readonly string[];
+  maxSizeMB?: number;
+  icon?: ElementType;
+  helperText?: string;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragging, setDragging] = useState(false);
 
   function validateAndSet(candidate: File) {
     const extension = `.${candidate.name.split(".").pop()?.toLowerCase()}`;
-    if (!ACCEPTED_MODEL_EXTENSIONS.includes(extension)) {
-      onFileSelected(null, `Formato no soportado. Usa ${ACCEPTED_MODEL_EXTENSIONS.join(" o ")}.`);
+    if (!acceptedExtensions.includes(extension)) {
+      onFileSelected(null, `Formato no soportado. Usa ${acceptedExtensions.join(", ")}.`);
       return;
     }
-    if (candidate.size > MAX_UPLOAD_SIZE_MB * 1024 * 1024) {
-      onFileSelected(null, `El archivo supera el limite de ${MAX_UPLOAD_SIZE_MB}MB.`);
+    if (candidate.size > maxSizeMB * 1024 * 1024) {
+      onFileSelected(null, `El archivo supera el limite de ${maxSizeMB}MB.`);
       return;
     }
     onFileSelected(candidate);
@@ -46,7 +54,7 @@ export function UploadDropzone({
     return (
       <div className="flex items-center gap-4 rounded-xl border border-border-strong bg-surface p-4">
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent">
-          <CubeTransparent size={20} weight="light" />
+          <Icon size={20} weight="light" />
         </div>
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-medium text-fg">{file.name}</p>
@@ -93,13 +101,13 @@ export function UploadDropzone({
             Arrastra tu archivo aqui o haz clic para buscarlo
           </p>
           <p className="mt-1 text-xs text-fg-muted">
-            {ACCEPTED_MODEL_EXTENSIONS.join(" / ").toUpperCase()} &middot; hasta {MAX_UPLOAD_SIZE_MB}MB
+            {helperText ?? `${acceptedExtensions.join(" / ").toUpperCase()} · hasta ${maxSizeMB}MB`}
           </p>
         </div>
         <input
           ref={inputRef}
           type="file"
-          accept={ACCEPTED_MODEL_EXTENSIONS.join(",")}
+          accept={acceptedExtensions.join(",")}
           className="sr-only"
           onChange={(e) => {
             const selected = e.target.files?.[0];

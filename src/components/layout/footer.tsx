@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { InstagramLogo, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
 import { Container } from "@/components/ui/container";
@@ -8,7 +9,10 @@ export function Footer() {
     <footer className="border-t border-border bg-bg-subtle">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         <div className="sm:col-span-2 lg:col-span-2">
-          <p className="text-[15px] font-semibold tracking-[-0.01em] text-fg">{SITE_NAME}</p>
+          <div className="flex items-center gap-2.5">
+            <Image src="/logo.png" alt="" width={26} height={26} className="h-6 w-6" />
+            <p className="text-[15px] font-semibold tracking-[-0.01em] text-fg">{SITE_NAME}</p>
+          </div>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-fg-muted">{SITE_DESCRIPTION}</p>
         </div>
 
