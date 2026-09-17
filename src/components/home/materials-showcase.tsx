@@ -6,7 +6,7 @@ import { MATERIALS, PRINT_COLORS } from "@/lib/constants";
 
 export function MaterialsShowcase() {
   return (
-    <section className="border-t border-border py-20 sm:py-28">
+    <section className="border-t border-white/10 py-20 sm:py-28">
       <Container>
         <SectionHeading
           eyebrow="Acabados"

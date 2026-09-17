@@ -21,7 +21,7 @@ const VALUES = [
 
 export function ValueProps() {
   return (
-    <section className="border-t border-border py-16 sm:py-20">
+    <section className="border-t border-white/10 py-16 sm:py-20">
       <Container className="grid gap-10 sm:grid-cols-3">
         {VALUES.map((value) => (
           <div key={value.title} className="flex gap-4">

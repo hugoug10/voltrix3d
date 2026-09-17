@@ -28,7 +28,7 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <section className="border-t border-border bg-bg-subtle py-20 sm:py-28">
+    <section className="border-t border-white/10 py-20 sm:py-28">
       <Container>
         <SectionHeading
           eyebrow="Cómo funciona"
