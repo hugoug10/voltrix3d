@@ -34,6 +34,13 @@ export function ProductCard({ product }: { product: ProductListItem }) {
           {product.productType && (
             <p className="mt-0.5 text-xs text-fg-faint">{product.productType}</p>
           )}
+          {product.availableForSale && typeof product.totalInventory === "number" && (
+            <p className="mt-0.5 text-xs text-fg-faint">
+              {product.totalInventory > 0
+                ? `Quedan ${product.totalInventory} uds.`
+                : "Bajo pedido"}
+            </p>
+          )}
         </div>
         <Price
           amount={product.priceRange.minVariantPrice.amount}

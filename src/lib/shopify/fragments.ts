@@ -48,6 +48,7 @@ export const productFragment = /* GraphQL */ `
     availableForSale
     tags
     productType
+    totalInventory
     priceRange {
       minVariantPrice {
         ...MoneyFragment
@@ -89,6 +90,7 @@ export const productListFragment = /* GraphQL */ `
     title
     availableForSale
     productType
+    totalInventory
     tags
     priceRange {
       minVariantPrice {

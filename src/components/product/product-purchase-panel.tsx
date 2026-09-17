@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Check, ShoppingBagOpen } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
+import { Check, ChatCircleText, ShoppingBagOpen } from "@phosphor-icons/react/dist/ssr";
 import { useCart } from "@/lib/cart/cart-context";
 import { Button } from "@/components/ui/button";
 import { Price } from "./price";
@@ -38,6 +39,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
 
   const price = selectedVariant?.price ?? product.priceRange.minVariantPrice;
   const canBuy = Boolean(selectedVariant?.availableForSale);
+  const stock = selectedVariant?.quantityAvailable ?? null;
 
   async function handleAddToCart() {
     if (!selectedVariant) return;
@@ -48,7 +50,14 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
 
   return (
     <div className="flex flex-col gap-7">
-      <Price amount={price.amount} currencyCode={price.currencyCode} className="text-2xl text-fg" />
+      <div className="flex flex-col gap-1.5">
+        <Price amount={price.amount} currencyCode={price.currencyCode} className="text-2xl text-fg" />
+        {canBuy && typeof stock === "number" && (
+          <p className="text-sm text-fg-muted">
+            {stock > 0 ? `Quedan ${stock} unidades en stock` : "Bajo pedido"}
+          </p>
+        )}
+      </div>
 
       {product.options
         .filter((option) => !(option.values.length === 1 && option.values[0] === "Default Title"))
@@ -108,6 +117,19 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           "Agotado"
         )}
       </Button>
+
+      <p className="flex items-start gap-2 text-sm text-fg-muted">
+        <ChatCircleText size={18} className="mt-0.5 shrink-0" />
+        <span>
+          {stock && stock > 0
+            ? `¿Necesitas más de ${stock} ${stock === 1 ? "unidad" : "unidades"}? `
+            : "¿Quieres esta pieza y no hay stock? "}
+          <Link href="/contacto" className="font-medium text-fg underline underline-offset-2">
+            Contacta con nosotros
+          </Link>{" "}
+          y lo gestionamos.
+        </span>
+      </p>
     </div>
   );
 }

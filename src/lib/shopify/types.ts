@@ -41,6 +41,7 @@ export type Product = {
   availableForSale: boolean;
   tags: string[];
   productType: string;
+  totalInventory: number | null;
   priceRange: {
     minVariantPrice: Money;
     maxVariantPrice: Money;
@@ -53,7 +54,15 @@ export type Product = {
 
 export type ProductListItem = Pick<
   Product,
-  "id" | "handle" | "title" | "availableForSale" | "priceRange" | "featuredImage" | "productType" | "tags"
+  | "id"
+  | "handle"
+  | "title"
+  | "availableForSale"
+  | "priceRange"
+  | "featuredImage"
+  | "productType"
+  | "tags"
+  | "totalInventory"
 >;
 
 export type CartAttribute = {
