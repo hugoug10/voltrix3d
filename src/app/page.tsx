@@ -17,7 +17,7 @@ export default function Home() {
       <div className="dark relative">
         <div className="fixed inset-0 -z-10">
           <Image src={BACKGROUND_PHOTO} alt="" fill sizes="100vw" className="object-cover" priority={false} />
-          <div className="absolute inset-0 bg-[#0b1426]/80" />
+          <div className="absolute inset-0 bg-[#0b1426]/70" />
         </div>
 
         <Hero />

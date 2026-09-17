@@ -34,7 +34,7 @@ export function PrintPortal() {
             className="object-cover"
             priority={false}
           />
-          <div className="absolute inset-0 bg-[#0b1426]/55" />
+          <div className="absolute inset-0 bg-[#0b1426]/70" />
         </div>
       }
       front={
