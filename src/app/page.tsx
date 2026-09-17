@@ -3,7 +3,7 @@ import { HowItWorks } from "@/components/home/how-it-works";
 import { FeaturedProducts } from "@/components/home/featured-products";
 import { MaterialsShowcase } from "@/components/home/materials-showcase";
 import { ValueProps } from "@/components/home/value-props";
-import { CustomPrintCta } from "@/components/home/custom-print-cta";
+import { PrintPortal } from "@/components/home/print-portal";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <HowItWorks />
       <MaterialsShowcase />
       <ValueProps />
-      <CustomPrintCta />
+      <PrintPortal />
     </>
   );
 }

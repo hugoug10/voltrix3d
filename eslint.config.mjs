@@ -13,6 +13,15 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    // Vendored as-is (MIT, see file header) — do not edit to satisfy the React
+    // Compiler linter. Its local `characterOffset` accumulator is scoped to a
+    // single render and reset every call; not a real render-purity violation.
+    files: ["src/components/ui/glyph-portal.tsx"],
+    rules: {
+      "react-hooks/immutability": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;
