@@ -57,28 +57,99 @@ backend de datos.
 ## 3. Credenciales y accesos (valores sensibles NO están en este archivo)
 
 Por seguridad, los tokens reales no se guardan en el repo (ni en este
-handoff). Cópialos desde tu gestor de contraseñas o desde el `.env.local`
-del ordenador actual (cópialo directamente, es el camino más rápido). Si se
-pierden, se regeneran así:
+handoff). El camino más rápido en el ordenador nuevo es **copiar el
+`.env.local` del ordenador actual directamente** (por AirDrop, USB, un
+mensaje privado, etc. — nunca por git). Si no lo tienes a mano o hay que
+regenerarlo, sigue esto exactamente (ya lo hicimos una vez, así que esto
+evita repetir los callejones sin salida que nos encontramos):
 
-- **Shopify Storefront API token**: admin de Shopify → Configuración →
-  Aplicaciones y canales de venta → Desarrollo de aplicaciones (o, si esa
-  vía está cerrada por fecha, usa el Dev Dashboard en `partners.shopify.com`
-  → tu app "Voltrix3D Web" → Configuración → bloque Storefront API →
-  Gestionar). App ya creada, solo hay que ver/copiar el token existente en
-  la pestaña "Credenciales de API".
-- **Shopify Admin API token** (`shpat_...`, usado puntualmente por mí vía
-  `curl` para crear productos): misma app, bloque Admin API. Scopes
-  activados: `write_products`, `read_products`, `write_inventory`,
-  `read_inventory`, `read_locations`, `read_publications`,
-  `write_publications`. Si lo necesitas de nuevo, revisa/reactívalo ahí.
+### 3.1 Ya existe una app creada — no crear otra
+
+La app **"Voltrix3D Web"** ya está creada en la tienda
+`voltrix3d-gwo0wtya.myshopify.com` (organización de Partners
+"CyberSkyWeb"). No hace falta crear una app nueva, solo entrar en esa y
+mirar/copiar sus credenciales.
+
+### 3.2 Cómo llegar a las credenciales (la ruta que de verdad funciona)
+
+1. Entra en el admin de la tienda:
+   `https://admin.shopify.com/store/voltrix3d-gwo0wtya`
+2. Ve a **Configuración → Aplicaciones y canales de venta → Desarrollo de
+   apps** (`/settings/apps/development`).
+3. Verás dos bloques: **"Crea y gestiona apps en tu Dev Dashboard"** y
+   **"Crea apps personalizadas heredadas"**.
+   - ⚠️ El bloque de apps heredadas **ya no deja crear apps nuevas** desde
+     el 1 de enero de 2026 (si el sistema te lo permite igualmente,
+     adelante, pero probablemente esté bloqueado). No pierdas tiempo ahí
+     para una app nueva — no hace falta, ya tenemos una.
+4. Pulsa **"Desarrollar apps en Dev Dashboard"**. Esto te lleva a un panel
+   nuevo (`dev.shopify.com` o similar) donde aparece **"Voltrix3D Web"**
+   en la lista — entra en ella.
+5. Dentro de la app verás pestañas: **Resumen, Configuración, Credenciales
+   de API, Configuración de la app**.
+6. Ve a **Configuración de la app** (o "Resumen", ahí también aparece un
+   acceso directo) → busca el bloque **"Storefront API"** → botón
+   **"Gestionar"**.
+   - ⚠️ **Ojo con un bucle confuso**: si en vez de esto llegas a una
+     pantalla titulada **"Solicitudes de acceso a la API"**
+     (`partners.shopify.com/.../api_access`), **esa no es la pantalla
+     correcta** para los scopes básicos del Storefront API — es para pedir
+     acceso a datos protegidos (requiere revisión de Shopify) y no hace
+     falta para esto. Si te manda ahí, vuelve atrás y entra por el enlace
+     azul que dice algo como *"visita tu panel de control de
+     desarrollador"* dentro del aviso de la pantalla de Resumen — eso es
+     lo que te lleva al Dev Dashboard real (paso 4-5).
+7. En el Dev Dashboard, dentro de **Configuración de la app**, el bloque
+   Storefront API ya debería dejarte ver/editar los scopes directamente
+   (no debería pedir "Distribución" para una app ya instalada en tu propia
+   tienda). Los scopes que ya están activados:
+   `unauthenticated_read_product_listings`,
+   `unauthenticated_read_product_inventory`,
+   `unauthenticated_write_checkouts` (o `_carts`),
+   `unauthenticated_read_checkouts` (o `_carts`).
+8. Ve a la pestaña **Credenciales de API** → ahí está el **Storefront API
+   access token** (un string de 32 caracteres hexadecimales, sin prefijo).
+   Cópialo tal cual a `SHOPIFY_STOREFRONT_ACCESS_TOKEN`.
+
+### 3.3 Admin API token (solo si necesitas crear/editar productos por API)
+
+Mismo sitio (Dev Dashboard → Voltrix3D Web → Configuración de la app),
+bloque **Admin API** en vez de Storefront API. Scopes que ya están
+activados (actívalos si no aparecen): `write_products`, `read_products`,
+`write_inventory`, `read_inventory`, `read_locations`,
+`read_publications`, `write_publications`. El token (`shpat_...`) sale en
+la misma pestaña **Credenciales de API**. Este token permite crear
+productos directamente por `curl`/GraphQL sin pasar por el formulario de
+Shopify — así es como se crearon los 4 productos del catálogo actual (ver
+sección 4.3). Ejemplo mínimo de verificación:
+
+```bash
+curl -s -X POST "https://voltrix3d-gwo0wtya.myshopify.com/admin/api/2025-01/graphql.json" \
+  -H "X-Shopify-Access-Token: <TOKEN>" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ shop { name } }"}'
+```
+
+### 3.4 Dominio de la tienda y ubicación de inventario
+
+- Dominio Storefront: `voltrix3d-gwo0wtya.myshopify.com`
+- Location ID de inventario (única): `gid://shopify/Location/91387625717`
+- Publication ID del canal "Online Store" (a la que hay que publicar
+  cualquier producto nuevo para que la Storefront API lo vea):
+  `gid://shopify/Publication/200153006325`
+
+### 3.5 Vercel y GitHub
+
 - **Vercel**: proyecto ya importado desde GitHub, variables de entorno ya
   configuradas en el dashboard de Vercel (Settings → Environment
   Variables) — no hace falta tocarlas salvo que cambies algo.
 - **GitHub**: repo bajo la cuenta personal `hugoug10`. Si `git push` te
   pide credenciales en el ordenador nuevo, usa un **Personal Access Token**
   (fine-grained, permiso Contents: Read and write) como contraseña — ver
-  GitHub → Settings → Developer settings → Personal access tokens.
+  GitHub → Settings → Developer settings → Personal access tokens. En la
+  pantalla de creación, los permisos están bajo un botón **"Add
+  permissions"** que abre un buscador — busca "Contents" y ponlo en
+  "Read and write".
 
 ---
 
