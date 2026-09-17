@@ -23,7 +23,7 @@ export function Header() {
           className="flex items-center gap-2.5"
           onClick={() => setMobileOpen(false)}
         >
-          <Image src="/logo.png" alt="" width={30} height={30} priority className="h-7 w-7 sm:h-8 sm:w-8" />
+          <Image src="/logo.png" alt="" width={23} height={32} priority className="h-7 w-auto sm:h-8" />
           <span
             className="bg-[image:var(--gradient-brand)] bg-clip-text text-[16px] font-bold tracking-[-0.01em] text-transparent"
           >

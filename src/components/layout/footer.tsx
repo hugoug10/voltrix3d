@@ -10,7 +10,7 @@ export function Footer() {
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         <div className="sm:col-span-2 lg:col-span-2">
           <div className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="" width={26} height={26} className="h-6 w-6" />
+            <Image src="/logo.png" alt="" width={17} height={24} className="h-6 w-auto" />
             <p className="text-[15px] font-semibold tracking-[-0.01em] text-fg">{SITE_NAME}</p>
           </div>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-fg-muted">{SITE_DESCRIPTION}</p>

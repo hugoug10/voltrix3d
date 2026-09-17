@@ -68,10 +68,10 @@ export function Hero() {
             <Image
               src="/logo.png"
               alt="Voltrix3D"
-              width={112}
+              width={80}
               height={112}
               priority
-              className="relative h-24 w-24 drop-shadow-sm sm:h-28 sm:w-28"
+              className="relative h-24 w-auto drop-shadow-sm sm:h-28"
             />
             <div className="relative flex w-full flex-col gap-3 border-t border-border pt-5">
               {SPECS.map((spec) => (
