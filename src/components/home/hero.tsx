@@ -20,16 +20,8 @@ export function Hero() {
 
       <Container className="relative grid gap-14 py-16 sm:py-24 lg:grid-cols-12 lg:items-center lg:py-28">
         <div className="lg:col-span-7">
-          <p className="animate-fade-up mb-5 inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface/60 px-3.5 py-1.5 text-xs font-medium tracking-wide text-fg-muted">
-            <span
-              className="h-1.5 w-1.5 rounded-full"
-              style={{ backgroundImage: "var(--gradient-brand)" }}
-            />
-            Estudio de impresión 3D
-          </p>
           <h1
             className="animate-fade-up text-balance text-4xl font-medium leading-[1.08] text-fg sm:text-5xl lg:text-6xl"
-            style={{ animationDelay: "60ms" }}
           >
             Del archivo digital a la pieza en tus manos.
           </h1>
