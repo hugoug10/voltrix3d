@@ -39,14 +39,6 @@ export function PrintPortal() {
       }
       front={
         <>
-          <div className="absolute inset-x-6 top-6 flex items-center justify-between gap-4 sm:inset-x-10 sm:top-8">
-            <div className="flex items-center gap-2">
-              <Image src="/logo.png" alt="" width={17} height={24} className="h-6 w-auto" />
-              <span className="text-[15px] font-semibold tracking-[-0.01em] text-white">Voltrix3D</span>
-            </div>
-            <span className="hidden text-xs text-white/70 sm:block">Impresión bajo pedido</span>
-          </div>
-
           <p
             className="absolute inset-x-6 text-center text-xs font-medium uppercase tracking-[0.18em] text-white/70"
             style={{ top: "calc(var(--gp-word-top, 30%) - 2.5rem)" }}

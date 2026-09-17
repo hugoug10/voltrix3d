@@ -8,12 +8,12 @@ import { PrintPortal } from "@/components/home/print-portal";
 export default function Home() {
   return (
     <>
+      <PrintPortal />
       <Hero />
       <FeaturedProducts />
       <HowItWorks />
       <MaterialsShowcase />
       <ValueProps />
-      <PrintPortal />
     </>
   );
 }
