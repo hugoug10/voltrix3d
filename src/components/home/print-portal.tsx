@@ -4,8 +4,8 @@ import GlyphPortal, { type GlyphPortalStyle } from "@/components/ui/glyph-portal
 import { Button } from "@/components/ui/button";
 
 const portalStyle: GlyphPortalStyle = {
-  "--gp-paper": "var(--color-bg-subtle)",
-  "--gp-ink": "var(--color-fg)",
+  "--gp-paper": "#0b1426",
+  "--gp-ink": "#f6f8fb",
   "--gp-field": "#0b1426",
   "--gp-foreground": "#f6f8fb",
 };
@@ -20,10 +20,8 @@ export function PrintPortal() {
   return (
     <GlyphPortal
       word="VOLTRIX"
-      focusChar="O"
-      scrollLength={2.2}
-      fontFamily='var(--font-space-grotesk), "Arial Black", sans-serif'
-      fontWeight={700}
+      scrollLength={1.6}
+      fontWeight={900}
       enterLabel="Entrar"
       style={portalStyle}
       background={
