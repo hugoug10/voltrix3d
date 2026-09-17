@@ -1,12 +1,21 @@
-import Image from "next/image";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import GlyphPortal, { type GlyphPortalStyle } from "@/components/ui/glyph-portal";
 import { Button } from "@/components/ui/button";
 
+export const HOME_BACKGROUND_PHOTO =
+  "https://images.unsplash.com/photo-1642969164999-979483e21601?q=80&w=1920&auto=format&fit=crop";
+
+// Same photo, same position/size, "fixed" attachment on every layer that uses it,
+// only the overlay darkness differs — so nothing ever re-crops or shifts as you
+// scroll from the letter reveal into the rest of the page.
+export function photoLayer(overlay: number) {
+  return `linear-gradient(rgba(11,20,38,${overlay}), rgba(11,20,38,${overlay})), url('${HOME_BACKGROUND_PHOTO}') center / cover fixed no-repeat`;
+}
+
 const portalStyle: GlyphPortalStyle = {
-  "--gp-paper": "#0b1426",
+  "--gp-paper": photoLayer(0.8),
   "--gp-ink": "#f6f8fb",
-  "--gp-field": "#0b1426",
+  "--gp-field": photoLayer(0.18),
   "--gp-foreground": "#f6f8fb",
 };
 
@@ -24,19 +33,7 @@ export function PrintPortal() {
       fontWeight={900}
       enterLabel="Entrar"
       style={portalStyle}
-      background={
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1642969164999-979483e21601?q=80&w=1600&auto=format&fit=crop"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority={false}
-          />
-          <div className="absolute inset-0 bg-[#0b1426]/70" />
-        </div>
-      }
+      background={false}
       front={
         <>
           <p
