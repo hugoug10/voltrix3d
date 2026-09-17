@@ -107,11 +107,11 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
       >
         {added ? (
           <>
-            <Check size={18} /> Anadido
+            <Check size={18} /> Añadido
           </>
         ) : canBuy ? (
           <>
-            <ShoppingBagOpen size={18} /> Anadir al carrito
+            <ShoppingBagOpen size={18} /> Añadir al carrito
           </>
         ) : (
           "Agotado"

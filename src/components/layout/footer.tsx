@@ -64,7 +64,7 @@ export function Footer() {
           <p>
             &copy; {new Date().getFullYear()} {SITE_NAME}. Todos los derechos reservados.
           </p>
-          <p>Impresion 3D bajo pedido, hecha en Espana.</p>
+          <p>Impresión 3D bajo pedido, hecha en España.</p>
         </Container>
       </div>
     </footer>

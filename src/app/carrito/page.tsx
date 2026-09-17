@@ -25,7 +25,7 @@ export default async function CarritoPage() {
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-bg-subtle text-fg-faint">
             <ShoppingBag size={22} weight="light" />
           </div>
-          <p className="text-sm text-fg-muted">Tu carrito esta vacio por ahora.</p>
+          <p className="text-sm text-fg-muted">Tu carrito está vacío por ahora.</p>
           <Button href="/tienda" variant="outline">
             Ver la tienda
           </Button>
@@ -45,7 +45,7 @@ export default async function CarritoPage() {
               />
             </div>
             <p className="mt-2 text-xs text-fg-faint">
-              Impuestos y envio se calculan en el checkout.
+              Impuestos y envío se calculan en el checkout.
             </p>
             <Button href={cart!.checkoutUrl} fullWidth className="mt-6">
               Finalizar compra

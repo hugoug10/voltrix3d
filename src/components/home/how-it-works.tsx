@@ -7,22 +7,22 @@ const STEPS = [
   {
     icon: CloudArrowUp,
     title: "Sube tu modelo",
-    description: "Arrastra tu archivo .STL o .OBJ. Aceptamos disenos propios o descargados.",
+    description: "Arrastra tu archivo .STL o .OBJ. Aceptamos diseños propios o descargados.",
   },
   {
     icon: Palette,
     title: "Elige acabado",
-    description: "Selecciona material, color y densidad de relleno segun el uso de la pieza.",
+    description: "Selecciona material, color y densidad de relleno según el uso de la pieza.",
   },
   {
     icon: Calculator,
-    title: "Presupuesto al instante",
-    description: "Calculamos un precio estimado por volumen y material antes de pagar.",
+    title: "Confirmamos el precio",
+    description: "Revisamos tu archivo y te confirmamos precio y plazo antes de fabricar.",
   },
   {
     icon: Package,
     title: "Imprimimos y enviamos",
-    description: "Fabricamos tu pieza y la recibes en tu puerta en pocos dias.",
+    description: "Fabricamos tu pieza y la recibes en tu puerta en pocos días.",
   },
 ];
 
@@ -31,8 +31,8 @@ export function HowItWorks() {
     <section className="border-t border-border bg-bg-subtle py-20 sm:py-28">
       <Container>
         <SectionHeading
-          eyebrow="Como funciona"
-          title="Sube tu diseno, nosotros lo imprimimos"
+          eyebrow="Cómo funciona"
+          title="Sube tu diseño, nosotros lo imprimimos"
           description="Un flujo pensado para creadores, makers y estudios que necesitan piezas concretas sin invertir en una impresora."
         />
 

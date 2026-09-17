@@ -7,7 +7,7 @@ import { getProducts, getProductTypes, isShopifyConfigured, type ProductSortKey 
 
 export const metadata: Metadata = {
   title: "Tienda",
-  description: "Piezas de diseno propio impresas en 3D: decoracion, gadgets y objetos funcionales.",
+  description: "Piezas de diseño propio impresas en 3D: decoración, gadgets y objetos funcionales.",
 };
 
 const SORT_MAP: Record<string, { sortKey: ProductSortKey; reverse: boolean }> = {
@@ -40,9 +40,9 @@ export default async function TiendaPage({
   return (
     <Container className="py-14 sm:py-20">
       <SectionHeading
-        eyebrow="Catalogo"
+        eyebrow="Catálogo"
         title="Tienda"
-        description="Piezas listas para pedir, disenadas y fabricadas en el estudio."
+        description="Piezas listas para pedir, diseñadas y fabricadas en el estudio."
       />
 
       <div className="mt-10 flex flex-col gap-8">
@@ -53,7 +53,7 @@ export default async function TiendaPage({
             <p className="text-sm font-medium text-fg">Conecta tu tienda Shopify</p>
             <p className="mx-auto mt-1.5 max-w-sm text-sm text-fg-muted">
               Configura SHOPIFY_STORE_DOMAIN y SHOPIFY_STOREFRONT_ACCESS_TOKEN en .env.local para
-              sincronizar el catalogo real de tu tienda.
+              sincronizar el catálogo real de tu tienda.
             </p>
           </div>
         ) : (

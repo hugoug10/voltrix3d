@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 
 export const metadata: Metadata = {
   title: "Contacto",
-  description: "Escribenos para presupuestos a medida, colaboraciones o dudas sobre tu pedido.",
+  description: "Escríbenos para presupuestos a medida, colaboraciones o dudas sobre tu pedido.",
 };
 
 export default function ContactoPage() {
@@ -14,8 +14,8 @@ export default function ContactoPage() {
     <Container className="py-14 sm:py-20">
       <SectionHeading
         eyebrow="Sobre nosotros"
-        title="Un estudio pequeno, piezas hechas con cuidado"
-        description="Voltrix3D nace de la idea de acercar la fabricacion digital a quien tiene un diseno pero no una impresora. Cada pieza pasa por nuestras manos antes de salir del taller."
+        title="Un estudio pequeño, piezas hechas con cuidado"
+        description="Voltrix3D nace de la idea de acercar la fabricación digital a quien tiene un diseño pero no una impresora. Cada pieza pasa por nuestras manos antes de salir del taller."
       />
 
       <div className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-20">
@@ -51,8 +51,8 @@ export default function ContactoPage() {
             </div>
             <div>
               <h3 className="text-sm font-medium text-fg">Taller</h3>
-              <p className="mt-1 text-sm text-fg-muted">Valencia, Espana</p>
-              <p className="text-sm text-fg-muted">Envios a toda la Peninsula y Baleares</p>
+              <p className="mt-1 text-sm text-fg-muted">Valencia, España</p>
+              <p className="text-sm text-fg-muted">Envíos a toda la Península y Baleares</p>
             </div>
           </div>
 

@@ -6,16 +6,16 @@ import { FeasibilityForm } from "@/components/upload/feasibility-form";
 import { CustomPrintForm } from "@/components/upload/custom-print-form";
 
 export const metadata: Metadata = {
-  title: "Imprime tu diseno",
-  description: "Sube tu modelo 3D en STL u OBJ, elige material y color, y recibe un presupuesto al instante.",
+  title: "Imprime tu diseño",
+  description: "Sube tu modelo 3D en STL u OBJ, o una foto/PDF de referencia, y te confirmamos precio y viabilidad.",
 };
 
 export default function ImprimeTuDisenoPage() {
   return (
     <Container className="py-14 sm:py-20">
       <SectionHeading
-        eyebrow="Impresion bajo pedido"
-        title="Imprime tu diseno"
+        eyebrow="Impresión bajo pedido"
+        title="Imprime tu diseño"
         description="Ya tengas un archivo listo para imprimir o solo una idea, tenemos un camino para ti."
       />
 
@@ -25,7 +25,7 @@ export default function ImprimeTuDisenoPage() {
             <ImageSquare size={19} weight="light" />
           </div>
           <div>
-            <h2 className="text-base font-medium text-fg">¿No tienes un modelo 3D todavia?</h2>
+            <h2 className="text-base font-medium text-fg">¿No tienes un modelo 3D todavía?</h2>
             <p className="mt-1 text-sm leading-relaxed text-fg-muted">
               Sube una foto o un PDF de referencia de lo que quieres, y te decimos si podemos
               fabricarlo y un presupuesto orientativo antes de modelarlo.
@@ -49,8 +49,8 @@ export default function ImprimeTuDisenoPage() {
         <div>
           <h2 className="text-base font-medium text-fg">¿Ya tienes tu archivo .stl u .obj?</h2>
           <p className="mt-1 text-sm leading-relaxed text-fg-muted">
-            Adjuntalo aqui abajo para ahorrar tiempo: elige acabado y te damos un presupuesto
-            al instante, sin esperar revision.
+            Adjúntalo aquí abajo para ahorrar tiempo: elige acabado y te confirmamos el
+            presupuesto por email antes de imprimir.
           </p>
         </div>
       </div>

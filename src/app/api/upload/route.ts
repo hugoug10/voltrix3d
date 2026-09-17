@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   const kind = form.get("kind") === "reference" ? "reference" : "model";
 
   if (!(file instanceof File)) {
-    return NextResponse.json({ error: "No se ha recibido ningun archivo." }, { status: 400 });
+    return NextResponse.json({ error: "No se ha recibido ningún archivo." }, { status: 400 });
   }
 
   const acceptedExtensions = kind === "reference" ? ACCEPTED_REFERENCE_EXTENSIONS : ACCEPTED_MODEL_EXTENSIONS;
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
   if (file.size > maxSizeMB * 1024 * 1024) {
     return NextResponse.json(
-      { error: `El archivo supera el limite de ${maxSizeMB}MB.` },
+      { error: `El archivo supera el límite de ${maxSizeMB}MB.` },
       { status: 400 }
     );
   }

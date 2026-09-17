@@ -55,7 +55,7 @@ export function ContactForm() {
       {status === "error" && (
         <div className="flex items-center gap-2 text-sm text-danger" role="alert">
           <WarningCircle size={16} />
-          No se pudo enviar el mensaje. Intentalo de nuevo en unos minutos.
+          No se pudo enviar el mensaje. Inténtalo de nuevo en unos minutos.
         </div>
       )}
 

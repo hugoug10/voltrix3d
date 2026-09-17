@@ -51,7 +51,7 @@ export function FeasibilityForm() {
       setFile(null);
     } catch (err) {
       setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Algo salio mal, intentalo de nuevo.");
+      setErrorMessage(err instanceof Error ? err.message : "Algo salió mal, inténtalo de nuevo.");
     }
   }
 
@@ -90,21 +90,21 @@ export function FeasibilityForm() {
         <Input label="Email" name="email" type="email" autoComplete="email" required />
       </div>
       <Textarea
-        label="Cuentanos que necesitas (opcional)"
+        label="Cuéntanos qué necesitas (opcional)"
         name="message"
-        hint="Medidas aproximadas, para que se usara la pieza, referencias, etc."
+        hint="Medidas aproximadas, para qué se usará la pieza, referencias, etc."
         rows={3}
       />
 
       {status === "error" && (
         <div className="flex items-center gap-2 text-sm text-danger" role="alert">
           <WarningCircle size={16} />
-          {errorMessage ?? "No se pudo enviar la solicitud. Intentalo de nuevo en unos minutos."}
+          {errorMessage ?? "No se pudo enviar la solicitud. Inténtalo de nuevo en unos minutos."}
         </div>
       )}
 
       <Button type="submit" disabled={status === "submitting"} size="lg">
-        {status === "submitting" ? "Enviando..." : "Enviar para revision"}
+        {status === "submitting" ? "Enviando..." : "Enviar para revisión"}
       </Button>
     </form>
   );

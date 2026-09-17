@@ -98,7 +98,7 @@ export function UploadDropzone({
         </div>
         <div>
           <p className="text-sm font-medium text-fg">
-            Arrastra tu archivo aqui o haz clic para buscarlo
+            Arrastra tu archivo aquí o haz clic para buscarlo
           </p>
           <p className="mt-1 text-xs text-fg-muted">
             {helperText ?? `${acceptedExtensions.join(" / ").toUpperCase()} · hasta ${maxSizeMB}MB`}

@@ -7,8 +7,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Faltan campos obligatorios." }, { status: 400 });
   }
 
-  // TODO: conecta aqui un proveedor de email (p.ej. Resend) para reenviar
-  // este mensaje a tu buzon. Por ahora la peticion se acepta sin enviar nada.
+  // TODO: conecta aquí un proveedor de email (p.ej. Resend) para reenviar
+  // este mensaje a tu buzón. Por ahora la petición se acepta sin enviar nada.
   console.log("Nuevo mensaje de contacto:", body);
 
   return NextResponse.json({ ok: true });

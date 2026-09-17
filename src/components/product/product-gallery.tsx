@@ -12,7 +12,7 @@ export function ProductGallery({ images, title }: { images: ShopifyImage[]; titl
   if (gallery.length === 0) {
     return (
       <div className="flex aspect-square items-center justify-center rounded-2xl bg-bg-subtle text-sm text-fg-faint">
-        Sin imagenes
+        Sin imágenes
       </div>
     );
   }

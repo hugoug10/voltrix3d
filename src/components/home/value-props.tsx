@@ -4,18 +4,18 @@ import { Container } from "@/components/ui/container";
 const VALUES = [
   {
     icon: Ruler,
-    title: "Precision de estudio",
+    title: "Precisión de estudio",
     description: "Tolerancias ajustadas y postprocesado cuidado en cada pieza que sale del taller.",
   },
   {
     icon: Leaf,
     title: "Materiales responsables",
-    description: "PLA y PETG de origen vegetal cuando es posible, con desperdicio minimo de filamento.",
+    description: "PLA y PETG de origen vegetal cuando es posible, con desperdicio mínimo de filamento.",
   },
   {
     icon: Truck,
-    title: "Produccion local",
-    description: "Fabricado bajo pedido en Espana, sin stock innecesario ni sobreproduccion.",
+    title: "Producción local",
+    description: "Fabricado bajo pedido en España, sin stock innecesario ni sobreproducción.",
   },
 ];
 

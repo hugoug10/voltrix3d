@@ -12,14 +12,14 @@ export function CustomPrintCta() {
         >
           <div className="max-w-xl">
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-white/70">
-              Impresion bajo pedido
+              Impresión bajo pedido
             </p>
             <h2 className="text-balance text-3xl font-medium text-white sm:text-4xl">
-              ¿Ya tienes tu propio diseno? Imprimelo con nosotros.
+              ¿Ya tienes tu propio diseño? Imprímelo con nosotros.
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/80">
               Prototipos, piezas de repuesto, gadgets o encargos para otros makers: sube tu
-              archivo y te damos un presupuesto al instante.
+              archivo y te confirmamos el precio antes de imprimir.
             </p>
           </div>
           <Button
@@ -27,7 +27,7 @@ export function CustomPrintCta() {
             size="lg"
             className="shrink-0 bg-white text-[#0f1724] hover:bg-white/90"
           >
-            Subir mi diseno
+            Subir mi diseño
             <ArrowRight size={17} />
           </Button>
         </div>

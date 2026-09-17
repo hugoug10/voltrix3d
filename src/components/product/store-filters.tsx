@@ -29,11 +29,11 @@ export function StoreFilters({ productTypes }: { productTypes: string[] }) {
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
       <div className="w-full sm:w-56">
         <Select
-          aria-label="Filtrar por categoria"
+          aria-label="Filtrar por categoría"
           value={searchParams.get("categoria") ?? ""}
           onChange={(e) => updateParam("categoria", e.target.value)}
         >
-          <option value="">Todas las categorias</option>
+          <option value="">Todas las categorías</option>
           {productTypes.map((type) => (
             <option key={type} value={type}>
               {type}

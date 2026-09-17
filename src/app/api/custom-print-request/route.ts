@@ -8,8 +8,8 @@ export async function POST(request: Request) {
   }
 
   // TODO: conecta aquí un proveedor de email (p.ej. Resend) para reenviar
-  // esta solicitud de viabilidad a tu buzón. Por ahora se acepta sin enviar nada.
-  console.log("Nueva solicitud de viabilidad:", body);
+  // este pedido a tu buzón. Por ahora se acepta sin enviar nada.
+  console.log("Nuevo pedido de impresión personalizada:", body);
 
   return NextResponse.json({ ok: true });
 }

@@ -11,7 +11,7 @@ export function MaterialsShowcase() {
         <SectionHeading
           eyebrow="Acabados"
           title="Elige material y color para tu pieza"
-          description="Los mismos acabados que usamos en el estudio, disponibles para tu diseno personalizado."
+          description="Los mismos acabados que usamos en el estudio, disponibles para tu diseño personalizado."
         />
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_320px]">

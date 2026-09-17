@@ -14,9 +14,9 @@ export async function FeaturedProducts() {
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
-            eyebrow="Catalogo"
-            title="Piezas de diseno propio"
-            description="Objetos y gadgets disenados y fabricados en el estudio, listos para pedir."
+            eyebrow="Catálogo"
+            title="Piezas de diseño propio"
+            description="Objetos y gadgets diseñados y fabricados en el estudio, listos para pedir."
           />
           <Link
             href="/tienda"
@@ -32,14 +32,14 @@ export async function FeaturedProducts() {
               <p className="text-sm font-medium text-fg">Conecta tu tienda Shopify</p>
               <p className="mx-auto mt-1.5 max-w-sm text-sm text-fg-muted">
                 Configura las variables SHOPIFY_STORE_DOMAIN y SHOPIFY_STOREFRONT_ACCESS_TOKEN en
-                .env.local para sincronizar tu catalogo aqui.
+                .env.local para sincronizar tu catálogo aquí.
               </p>
             </div>
           ) : products.length === 0 ? (
             <div className="rounded-xl border border-dashed border-border-strong py-20 text-center">
-              <p className="text-sm font-medium text-fg">Todavia no hay productos publicados</p>
+              <p className="text-sm font-medium text-fg">Todavía no hay productos publicados</p>
               <p className="mt-1.5 text-sm text-fg-muted">
-                Anade productos desde tu panel de Shopify para verlos aqui.
+                Añade productos desde tu panel de Shopify para verlos aquí.
               </p>
             </div>
           ) : (

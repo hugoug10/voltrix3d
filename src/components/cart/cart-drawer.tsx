@@ -71,7 +71,7 @@ export function CartDrawer() {
             <div className="flex h-14 w-14 items-center justify-center rounded-full bg-bg-subtle text-fg-faint">
               <ShoppingBag size={22} weight="light" />
             </div>
-            <p className="text-sm text-fg-muted">Tu carrito esta vacio por ahora.</p>
+            <p className="text-sm text-fg-muted">Tu carrito está vacío por ahora.</p>
             <Button href="/tienda" variant="outline" size="sm" onClick={closeCart}>
               Ver la tienda
             </Button>
@@ -94,7 +94,7 @@ export function CartDrawer() {
                 />
               </div>
               <p className="mb-4 text-xs text-fg-faint">
-                Impuestos y envio se calculan en el checkout de Shopify.
+                Impuestos y envío se calculan en el checkout de Shopify.
               </p>
               <Button href={cart!.checkoutUrl} fullWidth>
                 Finalizar compra

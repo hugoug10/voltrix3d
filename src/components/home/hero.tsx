@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 
 const SPECS = [
-  { icon: Ruler, label: "Resolucion", value: "0.1 – 0.2 mm por capa" },
+  { icon: Ruler, label: "Resolución", value: "0.1 – 0.2 mm por capa" },
   { icon: CubeFocus, label: "Materiales", value: "PLA, PETG, ABS, TPU" },
   { icon: Package, label: "Entrega", value: "Fabricado bajo pedido" },
 ];
@@ -25,7 +25,7 @@ export function Hero() {
               className="h-1.5 w-1.5 rounded-full"
               style={{ backgroundImage: "var(--gradient-brand)" }}
             />
-            Estudio de impresion 3D
+            Estudio de impresión 3D
           </p>
           <h1
             className="animate-fade-up text-balance text-4xl font-medium leading-[1.08] text-fg sm:text-5xl lg:text-6xl"
@@ -37,8 +37,8 @@ export function Hero() {
             className="animate-fade-up mt-6 max-w-lg text-lg leading-relaxed text-fg-muted"
             style={{ animationDelay: "120ms" }}
           >
-            Disenamos y fabricamos piezas propias, y damos forma a tus propios modelos 3D
-            con materiales de precision. Sube tu archivo, elige acabado, y recibelo impreso.
+            Diseñamos y fabricamos piezas propias, y damos forma a tus propios modelos 3D
+            con materiales de precisión. Sube tu archivo, elige acabado, y recíbelo impreso.
           </p>
           <div
             className="animate-fade-up mt-9 flex flex-col gap-3 sm:flex-row"
@@ -50,7 +50,7 @@ export function Hero() {
             </Button>
             <Button href="/imprime-tu-diseno" variant="outline" size="lg">
               <UploadSimple size={17} />
-              Imprime tu diseno
+              Imprime tu diseño
             </Button>
           </div>
         </div>

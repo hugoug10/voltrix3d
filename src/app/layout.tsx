@@ -24,12 +24,12 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Impresion 3D de diseno`,
+    default: `${SITE_NAME} — Impresión 3D de diseño`,
     template: `%s — ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   openGraph: {
-    title: `${SITE_NAME} — Impresion 3D de diseno`,
+    title: `${SITE_NAME} — Impresión 3D de diseño`,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — Impresion 3D de diseno`,
+    title: `${SITE_NAME} — Impresión 3D de diseño`,
     description: SITE_DESCRIPTION,
   },
 };

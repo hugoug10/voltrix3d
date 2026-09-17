@@ -39,7 +39,7 @@ export function CartLineItem({ line }: { line: CartLine }) {
             type="button"
             onClick={() => removeItem(line.id)}
             disabled={isPending}
-            aria-label="Eliminar articulo"
+            aria-label="Eliminar artículo"
             className="cursor-pointer p-1 text-fg-faint transition-colors hover:text-danger disabled:cursor-not-allowed"
           >
             <Trash size={16} />

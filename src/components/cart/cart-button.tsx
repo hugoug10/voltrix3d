@@ -12,7 +12,7 @@ export function CartButton({ className }: { className?: string }) {
     <button
       type="button"
       onClick={openCart}
-      aria-label={`Abrir carrito, ${quantity} articulos`}
+      aria-label={`Abrir carrito, ${quantity} artículos`}
       className={cn(
         "relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-fg-muted transition-colors duration-150 hover:bg-surface-hover hover:text-fg",
         className
